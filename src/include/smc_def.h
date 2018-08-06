@@ -132,6 +132,9 @@ typedef struct smc_timer {
 typedef struct smc_thread {
 	/* stack point and entry */
 	void            *sp;                           /* stack point */
+	void            *stack_top;                    /* stack top */
+	void            *stack_size;                   /* stack size */
+	smc_uint8_t		stack_usage;                   /* stack usage */
 	smc_uint8_t     priority;                      /* thread priotity */
 	smc_uint8_t     stat;                          /* thread state */
 	

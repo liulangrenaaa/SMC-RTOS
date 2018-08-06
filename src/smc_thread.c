@@ -56,6 +56,10 @@ void smc_thread_init(smc_thread_t *thread,
 	/* Align the stack to 4-bytes */
 	thread->sp = smc_thread_stack_init(entry, parameter, 
 	                                   (smc_stack_t *)SMC_ALIGN_DOWN((smc_stack_t)stack_end, 4));
+	thread->stack_top			 = (smc_stack_t *)stack_start;
+#
+	thread->stack_size			 = stack_size;
+	thread->stack_usage			 = 0;
 	thread->priority             = priority;
 	thread->init_slice_tick      = slice_tick;
 	thread->remaining_slice_tick = slice_tick;
